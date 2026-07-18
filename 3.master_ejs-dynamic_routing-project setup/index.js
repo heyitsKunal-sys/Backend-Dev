@@ -1,8 +1,12 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 //body-parsers
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// public static files
+app.use(express.static(path.join(__dirname, 'public'))); //chahe koi bhi reqst aye backend pe har reqst k liye static files is path pe dhundna ie. public
 
 // ejs
 app.set('view engine', 'ejs');
