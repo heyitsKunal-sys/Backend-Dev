@@ -7,7 +7,8 @@ setting up ejs for ejs pages:
            install ejs from npm
            setup ejs as a view engines
 
-setting up public static flies
+setting up public static flies : mtlv hum use krna chahte ha ccs vanilla js images ko!!!!
+
 
 dynamic routing:
        dynamic routing
