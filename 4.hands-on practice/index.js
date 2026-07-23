@@ -15,14 +15,33 @@ app.get('/', function (req, res) {
         res.render("index", { files: files });
     });
 });
-app.get('/file/:filename', function (req, res) {
-    fs.readFile(`./files/${req.params.filename}`, "utf-8",function(err,filedata){
-        res.render('show', {filename: req.params.filename , filedata:filedata})
-    })
-    
-    
+
+
+app.get('/edit/:filename', function (req, res) {   //ye edit page wala
+
+    res.render('edit', { filename: req.params.filename })
+
 });
-app.post('/create', function (req, res) {
+
+
+app.post('/edit', function (req, res) {    //edit name k liye route
+    fs.rename(`./files/${req.body.previous}`, `./files/${req.body.new}`, function (err) {
+        res.redirect("/")
+        console.log(req.body)
+    })
+});
+
+
+
+
+app.get('/file/:filename', function (req, res) {
+    fs.readFile(`./files/${req.params.filename}`, "utf-8", function (err, filedata) {
+        res.render('show', { filename: req.params.filename, filedata: filedata })
+    })
+
+
+});
+app.post('/create', function (req, res) {   ///create k liye h
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.details, function (err) {
         res.redirect('/')
 
