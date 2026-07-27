@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +9,46 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
+
 <body>
-   <div class="w-full h-full bg-zinc-900 p-10 text-white ">
-    <div class="nav mb-10">
-        <a class="text-white-500 p-1 border-2 border-zinc-800 hover:bg-zinc-800  rounded-lg " href="/">Back to Home </a>
-
-    </div>
-    <h1 class="text-3xl tracking-tighter mb-3">All users</h1>
-    <div class="users flex gap-5 flex-wrap">
-        <div class="user w-72 p-5 bg-zinc-800 rounded-lg">
-            <div class="w-full h-52 bg-zinc-500 rounded-lg"></div>
-            <h3 class="text-xl tracking-tighter mt-3">Kunal </h3>
-            <h5 class=" text-zinc-500">kunal@gmail.com</h5>
-            <div class="flex gap-3 mt-10">
-                <a class="text-zinc-400 " href="">Edit User</a>
-                <a class="text-red-500" href="">Delete User </a>
-            </div>
+    <div class="w-full h-full bg-zinc-900 p-10 text-white ">
+        <div class="nav mb-10">
+            <a class="text-white-500 p-1 border-2 border-zinc-800 hover:bg-zinc-800  rounded-lg " href="/">Back to Home
+            </a>
 
         </div>
-        <div class="user w-72 p-5 bg-zinc-800 rounded-lg">
-            <div class="w-full h-52 bg-zinc-500 rounded-lg"></div>
-            <h3 class="text-xl tracking-tighter mt-3">Kunal </h3>
-            <h5 class=" text-zinc-500">kunal@gmail.com</h5>
-            <div class="flex gap-3 mt-10">
-                <a class="text-zinc-400 " href="">Edit User</a>
-                <a class="text-red-500" href="">Delete User </a>
-            </div>
+        <h1 class="text-3xl tracking-tighter mb-3">All users</h1>
+        <div class="users flex gap-5 flex-wrap">
+            <% if(users.length> 0){ %>
+                <% users.forEach(function(user){ %>
+                    <div class="user w-72 p-5 bg-zinc-800 rounded-lg">
+                        <div class="w-full h-72 bg-zinc-500 rounded-lg overflow-hidden">
+                            <img class="w-full h-full object-cover" src="<%= user.image %>" alt="">
+                        </div>
+                        <h3 class="text-xl tracking-tighter mt-3">
+                            <%= user.name %>
+                        </h3>
+                        <h5 class=" text-zinc-500">
+                            <%= user.email %>
+                        </h5>
+                        <div class="flex gap-3 mt-10">
+                            <a class="text-zinc-400 " href="">Edit User</a>
+                            <a class="text-red-500" href="/delete/<%= user._id  %>"> Delete User </a>
+                        </div>
+
+                    </div>
+
+                    <% }) %>
+
+                        <% } else{ %>
+                            <h3 class="text-zinc-500">no users yet</h3>
+
+                        <% } %>
+                           
 
         </div>
+
     </div>
-    
-   </div>
 </body>
+
 </html>
