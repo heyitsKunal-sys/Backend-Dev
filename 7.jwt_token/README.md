@@ -14,3 +14,8 @@ hume krna hai create user account:
 
 
        YE H AJ KA KAM
+
+
+
+       $2b$10$NwxAoggkD9x5GA5WqdAqHuVS9G2CSaTo/gWUmNlRToeBRWwm1Z.qW
+$2b$10$oRiwLI7wI4I3KQSjedI/LeCA0DZJ6dgIG3rlezn.MulBOcsGoYFsa
