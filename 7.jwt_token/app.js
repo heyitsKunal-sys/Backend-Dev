@@ -45,24 +45,29 @@ app.post('/create', async (req, res) => {
     // console.log(createdUser)
 })
 
-app.get('/login',function(req,res){
+app.get('/login', function (req, res) {
     res.render('login')
 
 })
-app.post('/login',async function(req,res){
-    let user  = await  userModel.findOne({email: req.body.email})
-   
-    if(!user) return res.send('something went wrong')
-    
-    bcrypt.compare(req.body.password,user.password , function(err,result){
-        if(result) res.send('u can login')
-        else res.send('no you cant login')    
-        
+app.post('/login', async function (req, res) {
+    let user = await userModel.findOne({ email: req.body.email })
+
+    if (!user) return res.send('something went wrong')
+
+    bcrypt.compare(req.body.password, user.password, function (err, result) {
+        if (result) {
+            let token = jwt.sign({email: user.email}, 'hello')
+            res.cookie('token', token)
+            res.send('you can login')
+
+        }
+        else res.send('no you cant login')
+
     })
 })
 
 app.get('/logout', function (req, res) {
-    res.cookie('token','')
+    res.cookie('token', '')
     res.redirect('/')
 
 })
