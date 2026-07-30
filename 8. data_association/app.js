@@ -34,4 +34,30 @@ app.get('/post/create', async function (req, res) {
 
 })
 
+// {
+//   "post": {
+//     "postdata": "hello sare log kaise ho",
+//     "user": "6a6b251b2724f2b4368e08ad",
+//     "_id": "6a6b2d2465a191539a0c1d0e",
+//     "date": "2026-07-30T10:53:24.793Z",
+//     "__v": 0
+//   },
+//   "user": {
+//     "_id": "6a6b251b2724f2b4368e08ad",
+//     "username": "kunal",
+//     "email": "kunu@gmail.com",
+//     "age": 22,
+//     "posts": [
+//       "6a6b2d2465a191539a0c1d0e"
+//     ],
+//     "__v": 1
+//   }
+// }   ye hoga localhost:3000/post/create pe 
+
+
+
+
+
+
+
 app.listen(3000);
