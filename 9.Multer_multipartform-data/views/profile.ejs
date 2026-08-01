@@ -9,13 +9,15 @@
 </head>
 
 <body>
-    <div class="bg-zinc-900 w-full h-full text-white p-10">
+    <div class="bg-zinc-900 w-full h-screen text-white p-10">
         <div class="w-full flex justify-end ">
             <a class="bg-green-900 text-sm mb-5 inline-block rounded-lg px-3 py-2" href="/logout">Logout</a>
 
         </div>
         <div class="flex gap-2 items-start ">
-            <div class="w-20 h-20 rounded-md bg-purple-900"></div>
+            <div class="w-10 h-10 rounded-md overflow-hidden ">
+                <img class="w-full h-full object-cover" src="/images/uploads/<%= user.profilepic%>" alt="">
+            </div>
             <h3 class="text-3xl mb-3"><span class="font-light">Hey</span>, <%= user.name %>
             </h3>
 
